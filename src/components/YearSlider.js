@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import RangeSlider from 'react-bootstrap-range-slider';
+import '../yearSlider.css'
 import {Play, SkipBackward, SkipForward, Stop} from 'react-bootstrap-icons';
 
 const YearSlider = () => {
