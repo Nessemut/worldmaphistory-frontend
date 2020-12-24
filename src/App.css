@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+  font-family: Brush, serif;
+}
+
+#App-header {
+  background-color: #47798d;
+  border-bottom: 2px solid #2b596b;
+}
+
+a:visited {
+  color: white;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-link {
+  width: 40px;
+  padding: 5px;
+}
+
+.navbar-link:hover {
+  background-color: #5a8fa4;
+  cursor: pointer;
+}
+
+.active {
+  font-weight:bold;
+  background-color: #2b596b;
+}
+
+a {
+  text-decoration: none;
+}
+
+.right {
+  float: right;
+}
+
+.titleName {
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+  padding: 5px;
+  margin: auto;
+  user-select: none;
+}
+
+.bottomBar {
+  border-top: 3px solid #cfcfcf;
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 85%;
+  height: 30%;
+}
+
+.chevronDownButton {
+  margin: 4px;
+  float: right;
+  border: 1px solid white;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  color: #484848;
+  cursor: pointer;
+}
+
+.chevronDownButton:hover {
+  background-color: #dddddd;
+  transition: 0.2s;
+}
+
+.yearRangeSlider {
+  cursor: pointer;
+}

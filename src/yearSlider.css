@@ -1,0 +1,18 @@
+.yearSlider {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.yearCounter {
+    font-family: Brush, serif;
+    user-select: none;
+    font-weight: bolder;
+}
+
+.timeControlButton {
+    cursor: pointer;
+    background-color: #6c96a7;
+    color: white;
+    border-color: #5a8fa4;
+    border-radius: 5px;
+}
