@@ -60,17 +60,20 @@ a {
   height: 30%;
 }
 
-.chevronDownButton {
-  margin: 4px;
+.chevronButton {
+  right: 4px;
+  bottom: 4px;
+  position: absolute;
   float: right;
-  border: 1px solid white;
+  border: none;
   border-radius: 3px;
   background-color: #eeeeee;
   color: #484848;
   cursor: pointer;
+  opacity: 60%;
 }
 
-.chevronDownButton:hover {
+.chevronButton:hover {
   background-color: #dddddd;
   transition: 0.2s;
 }

@@ -1,15 +1,33 @@
 import YearSlider from "./YearSlider";
-import {Component} from "react/cjs/react.production.min";
+import React, {useState} from 'react';
+import {ChevronDoubleDown, ChevronDoubleUp} from "react-bootstrap-icons";
 
-class BottomBar extends Component {
+const BottomBar = (props) => {
 
-    render() {
-        return (
-            <div className={"bottomBar"}>
-                <YearSlider />
-            </div>
-        );
-    }
-}
+    const [visible, setVisible] = useState(true);
+
+
+    return (
+        <div>
+            {
+                visible ? <div className={"bottomBar"}>
+                        <button className={"chevronButton"}
+                                onClick={() => setVisible(false)}
+                        >
+                            <ChevronDoubleDown size={20}/>
+                        </button>
+                        <YearSlider yearSetter={props.yearSetter} year={props.year}/>
+                    </div>
+                    :
+                    <button className={"chevronButton"}
+                            onClick={() => setVisible(true)}
+                    >
+                        <ChevronDoubleUp size={20}/>
+                    </button>
+            }
+        </div>
+    );
+
+};
 
 export default BottomBar;

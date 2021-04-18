@@ -4,21 +4,41 @@ import RangeSlider from 'react-bootstrap-range-slider';
 import '../yearSlider.css'
 import {Play, SkipBackward, SkipForward, Stop} from 'react-bootstrap-icons';
 
-const YearSlider = () => {
+
+const YearSlider = (props) => {
+
+    const setYear = props.yearSetter
+    const year = props.year
+
+    const speeds = [1, 2, 5, 10, 20];
+    const [speed, setSpeed] = useState(2);
+    const [autoRun, setAutorun] = useState(true);
+    const [totalDays, setTotalDays] = useState(0);
 
     const limitYears = {
-        max: parseInt(new Date().getFullYear()),
+        max: parseInt(new Date().getFullYear().toString()) -1,
         starting: -3800
     }
+/*
+    useEffect(() => {
+        console.log(totalDays)
+        fetch("http://127.0.0.1:5000/dateint")
+            //TODO: do this only at the creation of component
+            .then(res => res.json())
+            .then((data) => {
+                    setTotalDays(parseInt(data['totalDays']))
+                console.log(totalDays)
+                },
+                (error) => {
+                    console.log(error)
+                }
+            )
+    }, []);*/
 
-    const speeds = [1, 2, 5, 10, 50, 100, 200];
-    const [speed, setSpeed] = useState(2);
-    const [year, setYear] = useState(0);
-    const [autoRun, setAutorun] = useState(true);
 
     const formatYear = (year) => {
         if (year < 0) return year * -1 + ' BCE'
-        else return year + ' CE'
+        return year + 1 + ' CE'
     }
 
     const changeSpeed = (sum) => {
@@ -36,6 +56,7 @@ const YearSlider = () => {
 
     const increaseYear = () => {
         setYear(prevYear => {
+            if (prevYear === -1) return 0
             if (prevYear < limitYears.max) return prevYear + 1
             setAutorun(false)
             return limitYears.max
@@ -51,10 +72,6 @@ const YearSlider = () => {
         }
     }, [speed, autoRun])
 
-    useEffect(() => {
-        // TODO: update map every year
-    }, [year])
-
     return (
         <div>
             <div className={"yearSlider"}>
@@ -63,7 +80,9 @@ const YearSlider = () => {
                     value={year}
                     min={limitYears.starting}
                     max={limitYears.max}
-                    onChange={(y) => setYear(parseInt(y.target.value))}
+                    onChange={(y) => {
+                        setYear(parseInt(y.target.value))
+                    }}
                     variant='secondary'
                     tooltip='off'
                 />

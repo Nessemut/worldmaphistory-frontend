@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from "./components/Home";
+import MainPage from "./components/MainPage";
 import {View} from 'react-native';
 import './App.css';
 
@@ -25,7 +25,7 @@ function App() {
             <div className="App container py-3">
                 <Header/>
                 <Switch>
-                    <Route path='/' component={Home}/>
+                    <Route path='/' component={MainPage}/>
                 </Switch>
             </div>
         </Router>
