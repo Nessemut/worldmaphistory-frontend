@@ -8,48 +8,48 @@ const WorldMap = props => {
     const position = [0, 0]
     const [territories, setTerritories] = useState([])
 
-    const territoryIsToBeUpdated = (temp, receivedTerritory) => {
-        let index = 0
-        let isThere = false
-        territories.forEach(territory => {
-            if (territory.key === receivedTerritory.key) {
-                isThere = true;
-            } else if (territory.name === receivedTerritory.name) {
-                let temp = territories
-                temp.splice(index)
-                temp.push(receivedTerritory)
-                isThere = true;
-            }
-            index += 1
-        });
-        if (!isThere) {
-            temp.push(receivedTerritory)
-        }
-    }
+    // const territoryIsToBeUpdated = (temp, receivedTerritory) => {
+    //     let index = 0
+    //     let isThere = false
+    //     territories.forEach(territory => {
+    //         if (territory.key === receivedTerritory.key) {
+    //             isThere = true;
+    //         } else if (territory.name === receivedTerritory.name) {
+    //             let temp = territories
+    //             temp.splice(index)
+    //             temp.push(receivedTerritory)
+    //             isThere = true;
+    //         }
+    //         index += 1
+    //     });
+    //     if (!isThere) {
+    //         temp.push(receivedTerritory)
+    //     }
+    // }
 
-    const manageCurrentTerritories = () => {
-        let temp = territories
-        fetch(urlBuilder(props.year))
-            .then(res => res.json())
-            .then(data => {
-                data.forEach(territory => {
-                    let t = {
-                        key: territory.key,
-                        polygon: territory.polygon,
-                        style: territory.style,
-                        name: territory.name
-                    }
-                    territoryIsToBeUpdated(temp, t)
-                })
-            })
-        setTerritories(temp)
-    }
+    // const manageCurrentTerritories = () => {
+    //     let temp = territories
+    //     fetch(urlBuilder(props.year))
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             data.forEach(territory => {
+    //                 let t = {
+    //                     key: territory.key,
+    //                     polygon: territory.polygon,
+    //                     style: territory.style,
+    //                     name: territory.name
+    //                 }
+    //                 territoryIsToBeUpdated(temp, t)
+    //             })
+    //         })
+    //     setTerritories(temp)
+    // }
 
 
-    useEffect(() => {
-        console.log(territories)
-        manageCurrentTerritories()
-    }, [props.year])
+    // useEffect(() => {
+    //     console.log(territories)
+    //     manageCurrentTerritories()
+    // }, [props.year])
 
 
     const getGeoJsonComponents = () => {
@@ -79,7 +79,7 @@ const WorldMap = props => {
             />
 
             {getGeoJsonComponents()}
-
+ 
         </MapContainer>
 
     );

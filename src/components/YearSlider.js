@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import RangeSlider from 'react-bootstrap-range-slider';
-import '../yearSlider.css'
+// import '../yearSlider.css'
+import '../components/styles/yearSlider.css';
 import {Play, SkipBackward, SkipForward, Stop} from 'react-bootstrap-icons';
 
 
@@ -19,6 +20,7 @@ const YearSlider = (props) => {
         max: parseInt(new Date().getFullYear().toString()) -1,
         starting: -3800
     }
+
 /*
     useEffect(() => {
         console.log(totalDays)
@@ -101,7 +103,6 @@ const YearSlider = (props) => {
             </div>
         </div>
     )
-
 }
 
 export default YearSlider

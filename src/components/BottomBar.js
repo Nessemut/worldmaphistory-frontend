@@ -1,4 +1,4 @@
-import YearSlider from "./YearSlider";
+import YearSlider from './YearSlider';
 import React, {useState} from 'react';
 import {ChevronDoubleDown, ChevronDoubleUp} from "react-bootstrap-icons";
 

@@ -13,7 +13,6 @@ const MainPage = () => {
             <BottomBar yearSetter={setYear} year={year}/>
         </div>
     )
-
 }
 
 export default MainPage;
